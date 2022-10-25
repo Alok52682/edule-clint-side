@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink, Outlet, useLoaderData } from 'react-router-dom';
+import { ThemeContext } from '../../Contexts/ThemeProvider';
 
 const Courses = () => {
     const courses = useLoaderData();
+    const { light } = useContext(ThemeContext);
     return (
-        <div className='lg:grid grid-cols-4'>
+        <div className={`lg:grid grid-cols-4 ${light ? undefined : "bg-slate-700 text-white"}`}>
             <div className='text-center p-5 h-full' >
                 <div className="btn-group btn-group-vertical">
                     <NavLink
@@ -17,7 +19,7 @@ const Courses = () => {
                                 key={course.id}
                                 to={`/courses/${course.id}`}
                                 className={({ isActive }) =>
-                                    "nav-link my-2 border rounded p-5 hover:border-blue-400" + (isActive ? " text-white bg-blue-400" : " text-black")
+                                    "nav-link my-2 border rounded p-5 hover:border-blue-400" + (isActive ? " text-white bg-blue-400" : ` ${light ? " text-black" : " text-blue-200"}`)
                                 }
                             >{course.heading}</NavLink>
                         )

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../Contexts/ThemeProvider';
 
 const Blog = () => {
+    const { light } = useContext(ThemeContext);
     return (
-        <div>
+        <div className={`mt-10 ${light ? undefined : "bg-slate-700 text-white mt-0"}`}>
             <div className='w-10/12 mx-auto'>
-                <h1 className='text-5xl font-bold text-error my-10'>#Question 1</h1>
-                <div className="card card-compact bg-violet-100 shadow-xl">
+                <h1 className='text-5xl font-bold text-error'>#Question 1</h1>
+                <div className={`card card-compact shadow-xl ${light ? " bg-violet-100" : " bg-violet-900 text-white mt-0"}`}>
                     <figure><img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/07/express-logo.png" className='w-full' alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">What is cors?</h2>
@@ -20,7 +22,7 @@ const Blog = () => {
             </div>
             <div className='w-10/12 mx-auto'>
                 <h1 className='text-5xl font-bold text-error my-10'>#Question 2</h1>
-                <div className="card card-compact bg-violet-100 shadow-xl">
+                <div className={`card card-compact shadow-xl ${light ? " bg-violet-100" : " bg-violet-900 text-white mt-0"}`}>
                     <figure><img src="https://blog.back4app.com/wp-content/uploads/2018/01/Firebase-Alternatives-1.jpg" className='w-full' alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Why are you using firebase? What other options do you have to implement authentication?</h2>
@@ -37,7 +39,7 @@ const Blog = () => {
             </div>
             <div className='w-10/12 mx-auto'>
                 <h1 className='text-5xl font-bold text-error my-10'>#Question 3</h1>
-                <div className="card card-compact bg-violet-100 shadow-xl">
+                <div className={`card card-compact shadow-xl ${light ? " bg-violet-100" : " bg-violet-900 text-white mt-0"}`}>
                     <figure><img src="https://i.ytimg.com/vi/0x8Dap2EIVE/maxresdefault.jpg" className='w-full' alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">How does the private route work?</h2>
@@ -48,9 +50,9 @@ const Blog = () => {
                     </div>
                 </div>
             </div>
-            <div className='w-10/12 mx-auto mb-5'>
-                <h1 className='text-5xl font-bold text-error my-10'>#Question 4</h1>
-                <div className="card card-compact bg-violet-100 shadow-xl">
+            <div className='w-10/12 mx-auto'>
+                <h1 className='text-5xl font-bold text-error mt-10'>#Question 4</h1>
+                <div className={`card card-compact shadow-xl ${light ? " bg-violet-100" : " bg-violet-900 text-white mt-0"}`}>
                     <figure><img src="https://cdn.educba.com/academy/wp-content/uploads/2019/06/How-Node.JS-Works.jpg" className='w-full' alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">What is Node? How does Node work?</h2>

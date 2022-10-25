@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { ThemeContext } from '../../Contexts/ThemeProvider';
@@ -9,10 +8,6 @@ const Navber = () => {
 
     const { user } = useContext(AuthContext);
     const { light, SetLight } = useContext(ThemeContext);
-
-    const changeTheme = () => {
-        SetLight(!light)
-    }
 
     return (
         <div className={`navbar ${light ? "bg-blue-200" : "bg-blue-900"} sticky top-0 z-10`}>
@@ -83,7 +78,7 @@ const Navber = () => {
                 </ul>
                 <div className="form-control">
                     <label className="label cursor-pointer">
-                        <input onChange={changeTheme} type="checkbox" className="toggle mr-2" />
+                        <input onChange={() => SetLight(!light)} type="checkbox" className="toggle mr-2" />
                         <span className={`label-text text-black ${light ? " text-black" : " text-blue-200"}`}>{light ? 'Light' : 'Dark'}</span>
                     </label>
                 </div>

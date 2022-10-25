@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../Contexts/ThemeProvider';
 
 const Faq = () => {
+    const { light } = useContext(ThemeContext);
     return (
-        <div>
+        <div className={`${light ? undefined : "bg-slate-700 text-white"}`}>
             <h2 className='text-4xl font-bold text-blue-500 text-center mt-20 mb-10'>Frequently Asked Questions</h2>
-            <div className="collapse collapse-arrow border border-slate-300 bg-slate-200 rounded-box">
+            <div className={`collapse collapse-arrow border border-slate-300 rounded-box ${light ? "bg-cyan-100" : "bg-cyan-700"}`}>
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title text-xl font-bold">
                     How do I purchase the course?
@@ -23,7 +25,7 @@ const Faq = () => {
             </div>
 
             {/* Question number-2 */}
-            <div className="collapse collapse-arrow border border-slate-300 bg-slate-200 rounded-box">
+            <div className={`collapse collapse-arrow border border-slate-300 rounded-box ${light ? "bg-cyan-100" : "bg-cyan-700"}`}>
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title text-xl font-bold">
                     How long will the duration of the course be?
@@ -36,7 +38,7 @@ const Faq = () => {
                     </div>
                 </div>
             </div>
-            <div className="collapse collapse-arrow border border-slate-300 bg-slate-200 rounded-box">
+            <div className={`collapse collapse-arrow border border-slate-300 rounded-box ${light ? "bg-cyan-100" : "bg-cyan-700"}`}>
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title text-xl font-bold">
                     How can I get a refund after purchasing the course?
@@ -53,7 +55,7 @@ const Faq = () => {
             </div>
 
             {/* Question number-3 */}
-            <div className="collapse collapse-arrow border border-slate-300 bg-slate-200 rounded-box">
+            <div className={`collapse collapse-arrow border border-slate-300 rounded-box ${light ? "bg-cyan-100" : "bg-cyan-700"}`}>
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title text-xl font-bold">
                     Will the certificate expire?
@@ -62,7 +64,7 @@ const Faq = () => {
                     <p>Your certificate never expires, you can use the certificate whenever you want at your convenience.</p>
                 </div>
             </div>
-            <div className="collapse collapse-arrow border mb-10 border-slate-300 bg-slate-200 rounded-box">
+            <div className={`collapse collapse-arrow border border-slate-300 rounded-box ${light ? "bg-cyan-100" : "bg-cyan-700"}`}>
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title text-xl font-bold">
                     How do I start the course after purchase?

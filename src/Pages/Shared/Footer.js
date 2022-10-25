@@ -6,7 +6,6 @@ const Footer = () => {
 
     const { light } = useContext(ThemeContext);
 
-    console.log(light);
     return (
         <div className={`p-5 ${light ? "bg-blue-200" : "bg-blue-900 text-white"}`}>
             <div className="grid lg:grid-cols-4 w-9/12 mx-auto">
