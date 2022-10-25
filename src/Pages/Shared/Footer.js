@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaInbox, FaPhone, FaFacebookF, FaTwitter, FaInstagram, FaSkype } from 'react-icons/fa';
+import { ThemeContext } from '../../Contexts/ThemeProvider';
 
 const Footer = () => {
+
+    const { light } = useContext(ThemeContext);
+
+    console.log(light);
     return (
-        <div className='bg-blue-200 p-5'>
+        <div className={`p-5 ${light ? "bg-blue-200" : "bg-blue-900 text-white"}`}>
             <div className="grid lg:grid-cols-4 w-9/12 mx-auto">
                 <div className='text-xl'>
                     <div to='/' className="font-extrabold normal-case text-5xl flex items-center">

@@ -36,6 +36,21 @@ const Faq = () => {
                     </div>
                 </div>
             </div>
+            <div className="collapse collapse-arrow border border-slate-300 bg-slate-200 rounded-box">
+                <input type="checkbox" className="peer" />
+                <div className="collapse-title text-xl font-bold">
+                    How can I get a refund after purchasing the course?
+                </div>
+                <div className="collapse-content">
+                    <div className="overflow-x-auto">
+
+                        <p>Apply for a refund by calling 01XXXXXX within 72 hours of purchasing the course
+                            Refunds will be made within 7 to 14 working days based on the reason for the refund
+                            After purchasing the course, if you don't like the course or don't like the materials there are no refunds.</p>
+
+                    </div>
+                </div>
+            </div>
 
             {/* Question number-3 */}
             <div className="collapse collapse-arrow border border-slate-300 bg-slate-200 rounded-box">
