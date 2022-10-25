@@ -1,30 +1,31 @@
 import React from 'react';
-import { Link, NavLink, useLoaderData } from 'react-router-dom';
-import CourseCard from './CourseCard';
-import './Courses.css';
+import { NavLink, Outlet, useLoaderData } from 'react-router-dom';
 
 const Courses = () => {
     const courses = useLoaderData();
     return (
-        <div className='flex'>
-            <div className="overflow-x-auto border h-full">
-                <div className='text-center p-5' >
-                    <h2>Courses</h2>
-                    <ol className='list-decimal'>
-                        {
-                            courses.map(course => <li
+        <div className='lg:grid grid-cols-4'>
+            <div className='text-center p-5 h-full' >
+                <div className="btn-group btn-group-vertical">
+                    <NavLink
+                        to='/courses'
+                        className='btn btn-info text-2xl text-white'
+                    >All Courses</NavLink>
+                    {
+                        courses.map(course =>
+                            <NavLink
                                 key={course.id}
-                            >
-                                <NavLink to={`/courses/${course.id}`}>{course.heading}</NavLink>
-                            </li>)
-                        }
-                    </ol>
+                                to={`/courses/${course.id}`}
+                                className={({ isActive }) =>
+                                    "nav-link my-2 border rounded p-5 hover:border-blue-400" + (isActive ? " text-white bg-blue-400" : " text-black")
+                                }
+                            >{course.heading}</NavLink>
+                        )
+                    }
                 </div>
             </div>
-            <div className='grid grid-cols-3 gap-5 w-9/12 mx-auto my-5'>
-                {
-                    courses.map(course => <CourseCard key={course.id} course={course} />)
-                }
+            <div className='col-span-3'>
+                <Outlet />
             </div>
         </div>
     );

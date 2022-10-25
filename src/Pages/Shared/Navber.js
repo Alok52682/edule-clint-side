@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/UserContext';
@@ -6,6 +7,11 @@ import { AuthContext } from '../../Contexts/UserContext';
 const Navber = () => {
 
     const { user } = useContext(AuthContext);
+    const [theme, SetTheme] = useState(true);
+
+    const changeTheme = () => {
+        SetTheme(!theme);
+    }
 
     return (
         <div className="navbar bg-blue-200 sticky top-0 z-10">
@@ -45,7 +51,19 @@ const Navber = () => {
                             "nav-link" + (isActive ? "text-white bg-blue-400" : " text-black")
                         }
                     >Blog</NavLink></li>
+                    <li><NavLink
+                        to='/faq'
+                        className={({ isActive }) =>
+                            "nav-link" + (isActive ? "text-white bg-blue-400" : " text-black")
+                        }
+                    >FAQ</NavLink></li>
                 </ul>
+                <div className="form-control">
+                    <label className="label cursor-pointer">
+                        <input onChange={changeTheme} type="checkbox" className="toggle mr-2" />
+                        <span className="label-text text-black">{theme ? 'Light' : 'Dark'}</span>
+                    </label>
+                </div>
             </div>
             <div className="navbar-end">
                 {
