@@ -1,9 +1,9 @@
+import Main from "../Layouts/Main";
 import Blog from "../Pages/Blog/Blog";
 import Courses from "../Pages/Courses/Courses";
 import Home from "../Pages/Home/Home";
 
 const { createBrowserRouter } = require("react-router-dom");
-const { default: Main } = require("../Layouts/Main");
 const { default: ErrorPage } = require("../Pages/Shared/ErrorPage");
 
 const router = createBrowserRouter([{
@@ -21,6 +21,7 @@ const router = createBrowserRouter([{
         },
         {
             path: '/courses',
+            loader: async () => fetch(`https://b610-lerning-platform-server-side-sigma.vercel.app/courses`),
             element: <Courses />
         },
         {

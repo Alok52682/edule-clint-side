@@ -8,7 +8,7 @@ const Navber = () => {
     const { user } = useContext(AuthContext);
 
     return (
-        <div className="navbar bg-blue-200 sticky top-0">
+        <div className="navbar bg-blue-200 sticky top-0 z-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn text-black lg:hidden">
