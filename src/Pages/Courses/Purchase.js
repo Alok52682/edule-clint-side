@@ -3,20 +3,30 @@ import { useLoaderData } from 'react-router-dom';
 
 const Purchase = () => {
     const course = useLoaderData();
-    console.log(course);
+    const { course_banner, heading, price } = course;
     return (
-        <div>
-            <div>
-
-            </div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+        <div className='lg:flex items-center justify-center gap-5 lg:mt-52 w-11/12 mx-auto'>
+            <div className="card bg-base-100 border shadow-xl mb-5 ">
                 <div className="card-body">
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-square btn-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                        </button>
+                    <div>
+                        <h2 className='text-2xl font-bold mb-5'>Proceed with mobile number/email to complete the payment</h2>
+                        <input type="text" placeholder="Phone/Email" className="input input-bordered input-info w-full mb-3" />
                     </div>
-                    <p>We are using cookies for no reason.</p>
+                    <div className="card-actions justify-end">
+                        <button className="btn btn-info w-full">Proceed</button>
+                    </div>
+
+                </div>
+            </div>
+            <div className="card w-full bg-base-100 border shadow-xl mb-5 ">
+                <div className="card-body">
+                    <div className='flex items-center justify-between border-b-2 border-blue-300 p-3'>
+                        <h2 className='text-lg font-bold'>{heading}</h2>
+                        <img src={course_banner} className='w-32 shadow-2xl border-4 border-blue-400' alt="" />
+                    </div>
+                    <div className="font-bold text-blue-600">
+                        <p>Price : ${price}</p>
+                    </div>
                 </div>
             </div>
         </div>

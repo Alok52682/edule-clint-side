@@ -15,7 +15,7 @@ const CourseDetails = () => {
         <div className='m-10'>
 
             <h1 className='text-4xl font-bold mb-5'>{heading}</h1>
-            <div className='border border-info p-5 rounded-xl flex justify-around items-center bg-blue-100'>
+            <div className='border border-info p-5 rounded-xl lg:flex justify-around items-center bg-blue-100'>
                 <div>
                     <h2 className='text-xl font-semibold'>Instractor</h2>
                     <img src={instructor_avater} className='w-24' alt="Instractor" />
@@ -23,7 +23,6 @@ const CourseDetails = () => {
                 </div>
                 <div>
                     <p>Price : ${price}</p>
-                    <Link to={`/courses/${id}/purchase`} className='btn btn-info text-white hover:bg-blue-400'>Purchase Course</Link>
                     <div className='flex items-center gap-1'>
                         <FaStar className='text-warning' />
                         <FaStar className='text-warning' />
@@ -32,8 +31,9 @@ const CourseDetails = () => {
                         <small className=' text-lg'>{about?.point}</small>
                     </div>
                     <p>Get the course : {about?.people} people</p>
+                    <Link to={`/courses/${id}/purchase`} className='btn btn-info text-white hover:bg-blue-400 w-full mb-2'>Purchase Course</Link>
                     <Pdf targetRef={ref} filename="code-example.pdf">
-                        {({ toPdf }) => <button onClick={toPdf} className="btn btn-info text-white hover:bg-blue-400">Download Curriculum PDF <FaFileDownload /></button>}
+                        {({ toPdf }) => <button onClick={toPdf} className="btn btn-info text-white hover:bg-blue-400 w-full">Download Curriculum PDF <FaFileDownload /></button>}
                     </Pdf>
                 </div>
             </div>
