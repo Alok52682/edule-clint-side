@@ -37,7 +37,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <h2 className='text-2xl text-blue-500 font-bold mb-5'>Subscribe</h2>
-                    <p>"Edule, the country's largest online education platform, has received foreign investment of Rs. 17 crores. The company has received institutional investment for the first time. India's Sequoia Capital has invested Rs. "</p>
+                    <p className='text-justify'>"Edule, the country's largest online education platform, has received foreign investment of Rs. 17 crores. The company has received institutional investment for the first time. India's Sequoia Capital has invested Rs. "</p>
                     <input type="email" placeholder="Drop Your email" className="input input-bordered input-info w-full max-w-xs my-2" />
                     <button className="btn btn-info">Subscribe</button>
                 </div>
