@@ -44,6 +44,10 @@ const LogIn = () => {
                 toast('Log In Successfull');
                 navigate(from, { replace: true });
             })
+            .catch((error) => {
+
+                toast(error.message);
+            })
     }
 
     const handleEmailBlur = (event) => {
