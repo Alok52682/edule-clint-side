@@ -3,6 +3,7 @@ import { NavLink, Outlet, useLoaderData } from 'react-router-dom';
 import { ThemeContext } from '../../Contexts/ThemeProvider';
 
 const Courses = () => {
+    // this component shows all course cards
     const courses = useLoaderData();
     const { light } = useContext(ThemeContext);
     return (

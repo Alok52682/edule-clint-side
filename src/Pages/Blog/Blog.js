@@ -4,6 +4,7 @@ import { ThemeContext } from '../../Contexts/ThemeProvider';
 const Blog = () => {
     const { light } = useContext(ThemeContext);
     return (
+        // here showing questions like blog
         <div className={`mt-10 ${light ? undefined : "bg-slate-700 text-white mt-0"}`}>
             <div className='w-10/12 mx-auto'>
                 <h1 className='text-5xl font-bold text-error'>#Question 1</h1>

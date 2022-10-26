@@ -5,8 +5,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/UserContext';
 
 const LogIn = () => {
-
+    // this is navigation hook which used for navigate user previous page after login
     const navigate = useNavigate();
+    // this hook is use for catch route location
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
     const { signInWithGoogle, signInWithGithub, userSignIn, handleForgetPass } = useContext(AuthContext);
@@ -34,6 +35,7 @@ const LogIn = () => {
             .catch((error) => console.log('error', error))
     }
 
+    // this function log in user by email and password
     const handelSignIn = event => {
         event.preventDefault();
         const email = userInfo.email;
@@ -45,7 +47,6 @@ const LogIn = () => {
                 navigate(from, { replace: true });
             })
             .catch((error) => {
-
                 toast(error.message);
             })
     }

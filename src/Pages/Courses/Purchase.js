@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import { ThemeContext } from '../../Contexts/ThemeProvider';
 
 const Purchase = () => {
+    // this is tha private route which is depends on user loged in or not
     const { light } = useContext(ThemeContext);
     const course = useLoaderData();
     const { course_banner, heading, price } = course;

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { ThemeContext } from '../../Contexts/ThemeProvider';
 
 const Faq = () => {
+    // most asked question showed in this component
     const { light } = useContext(ThemeContext);
     return (
         <div className={`${light ? undefined : "bg-slate-700 text-white"}`}>

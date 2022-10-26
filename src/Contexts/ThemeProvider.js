@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { createContext } from 'react';
 
+// this context for change theme by toggle button
 export const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {

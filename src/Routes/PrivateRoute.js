@@ -9,6 +9,7 @@ const PrivateRoute = ({ children }) => {
 
     if (loading) {
         return (
+            // this is the loader div svg
             <div className="text-center mt-28">
                 <div role="status">
                     <svg className="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,6 +21,7 @@ const PrivateRoute = ({ children }) => {
             </div>
         );
     }
+    // if user login then they access the protected route other wise they navigated to tha login page
     if (user && user.uid) {
         return children
     }

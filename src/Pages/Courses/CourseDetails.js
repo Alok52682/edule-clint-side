@@ -6,6 +6,7 @@ import { ThemeContext } from '../../Contexts/ThemeProvider';
 
 const ref = React.createRef();
 
+// this component shows full details of tha specific course
 const CourseDetails = () => {
     const { light } = useContext(ThemeContext);
     const course = useLoaderData();
@@ -33,6 +34,7 @@ const CourseDetails = () => {
                     </div>
                     <p>Get the course : {about?.people} people</p>
                     <Link to={`/courses/${id}/purchase`} className='btn btn-info text-white hover:bg-blue-400 w-full mb-2'>Purchase Course</Link>
+                    {/* this is the button which download the pdf of curriculum */}
                     <Pdf targetRef={ref} filename="code-example.pdf">
                         {({ toPdf }) => <button onClick={toPdf} className="btn btn-info text-white hover:bg-blue-400 w-full">Download Curriculum PDF <FaFileDownload /></button>}
                     </Pdf>

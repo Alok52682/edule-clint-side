@@ -2,7 +2,7 @@ import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-
+// this is the home component where write something about this website and set a courses button 
 const Home = () => {
     return (
         <div className="bg-[url('https://5thforcesupport.com/wp-content/uploads/2022/01/GettyImages-643950510-scaled.jpg')] grid place-content-center">

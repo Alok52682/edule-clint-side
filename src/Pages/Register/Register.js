@@ -2,12 +2,16 @@ import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/UserContext';
 
 const Register = () => {
 
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
+    // this state for show password suggession for genarate valied password
     const [showSuggession, setShowSuggession] = useState(false)
     const [passError, setPassError] = useState({
         oneUpperCase: "At least one upper case",
@@ -34,10 +38,13 @@ const Register = () => {
                 updateUserProfile(username, photo)
                     .then(() => { })
                     .catch((error) => console.log('error', error))
+                verifyEmail()
+                    .then(() => toast('Cheak email and varify your account.'))
                 console.log(result.user);
-                toast('Account has been Created')
+                toast('Account has been Created');
+                navigate(from, { replace: true });
             })
-            .catch((error) => console.log('error', error))
+            .catch((error) => toast(error.message))
     }
 
     const handelOnChangeFullName = event => {
@@ -58,7 +65,7 @@ const Register = () => {
     const handelOnChangePassword = event => {
         let password = event.target.value;
         setShowSuggession(true);
-
+        // this is for password validation
         if (/^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(password)) {
             setPassError({ oneUpperCase: " ", oneDegit: " ", oneSepcial: " ", eightCharecters: " " });
             setShowSuggession(false);

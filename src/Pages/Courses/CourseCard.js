@@ -6,6 +6,7 @@ const CourseCard = ({ course }) => {
     const { instructor, instructor_avater, about, course_banner, heading, price } = course;
 
     return (
+        // this is card component this is from map ak each card has course short information
         <div className="card mb-5 md:mb-0 glass">
             <div className='h-2/4'>
                 <img src={course_banner} className='h-full w-full' alt="Course Banner" />

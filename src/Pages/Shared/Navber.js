@@ -9,6 +9,7 @@ const Navber = () => {
     const { user, logOut } = useContext(AuthContext);
     const { light, SetLight } = useContext(ThemeContext);
 
+    // this handler used for log out user from this website
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -22,7 +23,7 @@ const Navber = () => {
                     <label tabIndex={0} className="btn lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className={`menu menu-compact dropdown-content mt-3 p-2 shadow ${light ? "bg-blue-200" : "bg-blue-900"} rounded-box w-52`}>
                         <li><NavLink
                             to='/home'
                             className={({ isActive }) =>
@@ -34,20 +35,29 @@ const Navber = () => {
                             className={({ isActive }) =>
                                 "nav-link" + (isActive ? "text-white bg-blue-400" : ` ${light ? " text-black" : " text-blue-200"}`)
                             }
-                        >Courses</NavLink></li>
+                        >Courses</NavLink>
+                        </li>
 
                         <li><NavLink
                             to='/blog'
                             className={({ isActive }) =>
                                 "nav-link" + (isActive ? "text-white bg-blue-400" : ` ${light ? " text-black" : " text-blue-200"}`)
                             }
-                        >Blog</NavLink></li>
+                        >Blog</NavLink>
+                        </li>
                         <li><NavLink
                             to='/faq'
                             className={({ isActive }) =>
                                 "nav-link" + (isActive ? "text-white bg-blue-400" : ` ${light ? " text-black" : " text-blue-200"}`)
                             }
-                        >FAQ</NavLink></li>
+                        >FAQ</NavLink>
+                        </li>
+                        <li className="form-control">
+                            <label className="label cursor-pointer">
+                                <input onChange={() => SetLight(!light)} type="checkbox" className="toggle mr-2" />
+                                <span className={`label-text text-black ${light ? " text-black" : " text-blue-200"}`}>{light ? 'Light' : 'Dark'}</span>
+                            </label>
+                        </li>
                     </ul>
                 </div>
                 <Link to='/' className={`btn btn-ghost font-extrabold normal-case text-2xl ${light ? " text-black" : " text-blue-200"}`}>
