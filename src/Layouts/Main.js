@@ -7,7 +7,7 @@ import { ThemeContext } from '../Contexts/ThemeProvider';
 const Main = () => {
     const { light } = useContext(ThemeContext);
     return (
-        <div className={`${light ? undefined : "bg-slate-700 text-white"}`}>
+        <div className={`${light ? undefined : "bg-slate-700"}`}>
             <Navber />
             <Outlet />
             <Footer />

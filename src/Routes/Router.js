@@ -6,6 +6,8 @@ import Courses from "../Pages/Courses/Courses";
 import Purchase from "../Pages/Courses/Purchase";
 import Faq from "../Pages/Faq/Faq";
 import Home from "../Pages/Home/Home";
+import LogIn from "../Pages/LogIn/LogIn";
+import Register from "../Pages/Register/Register";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: ErrorPage } = require("../Pages/Shared/ErrorPage");
@@ -44,6 +46,18 @@ const router = createBrowserRouter([{
                     element: <Purchase />
                 }
             ]
+        },
+        {
+            path: '/blog',
+            element: <Blog />
+        },
+        {
+            path: '/login',
+            element: <LogIn />
+        },
+        {
+            path: '/register',
+            element: <Register />
         },
         {
             path: '/blog',

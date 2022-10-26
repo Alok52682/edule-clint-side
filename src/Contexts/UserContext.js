@@ -5,7 +5,7 @@ import { createContext } from 'react';
 export const AuthContext = createContext();
 
 const UserContext = ({ children }) => {
-    const [user, setUser] = useState({ displayName: 'Alok' });
+    const [user, setUser] = useState(null);
 
 
     const AuthInfo = { user };

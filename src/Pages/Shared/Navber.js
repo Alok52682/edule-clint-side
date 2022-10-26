@@ -86,10 +86,7 @@ const Navber = () => {
             <div className="navbar-end">
                 {
                     !user?.displayName ?
-                        <ul className="menu menu-horizontal gap-2 p-0">
-                            <li><Link to='/login' className='btn text-black'>Log In</Link></li>
-                            <li><Link to='/register' className='btn text-black'>Register</Link></li>
-                        </ul>
+                        <Link to='/login' className={`btn btn-ghost ${light ? " text-black" : " text-blue-200"} `}>Log In</Link>
                         :
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

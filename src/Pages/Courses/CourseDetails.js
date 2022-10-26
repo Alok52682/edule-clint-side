@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaFileDownload, FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import Pdf from "react-to-pdf";
+import { ThemeContext } from '../../Contexts/ThemeProvider';
 
 const ref = React.createRef();
 
 const CourseDetails = () => {
+    const { light } = useContext(ThemeContext);
     const course = useLoaderData();
     const { about, curriculum, description, heading, instructor, instructor_avater, price, id } = course;
 
@@ -15,7 +17,7 @@ const CourseDetails = () => {
         <div className='m-10'>
 
             <h1 className='text-4xl font-bold mb-5'>{heading}</h1>
-            <div className='border border-info p-5 rounded-xl lg:flex justify-around items-center bg-blue-100'>
+            <div className={`border border-info p-5 rounded-xl lg:flex justify-around items-center  ${light ? "bg-blue-100" : "bg-blue-900 text-white"}`}>
                 <div>
                     <h2 className='text-xl font-semibold'>Instractor</h2>
                     <img src={instructor_avater} className='w-24' alt="Instractor" />

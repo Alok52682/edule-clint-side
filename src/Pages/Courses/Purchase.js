@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { ThemeContext } from '../../Contexts/ThemeProvider';
 
 const Purchase = () => {
+    const { light } = useContext(ThemeContext);
     const course = useLoaderData();
     const { course_banner, heading, price } = course;
     return (
         <div className='lg:flex items-center justify-center gap-5 lg:mt-52 w-11/12 mx-auto'>
-            <div className="card bg-base-100 border shadow-xl mb-5 ">
+            <div className={`"card ${light ? "bg-base-100" : "bg-base-900"} border shadow-xl mb-5 "`}>
                 <div className="card-body">
                     <div>
                         <h2 className='text-2xl font-bold mb-5'>Proceed with mobile number/email to complete the payment</h2>
@@ -18,7 +20,7 @@ const Purchase = () => {
 
                 </div>
             </div>
-            <div className="card w-full bg-base-100 border shadow-xl mb-5 ">
+            <div className={`card w-full border shadow-xl mb-5 ${light ? "bg-base-100" : "bg-base-900"} `}>
                 <div className="card-body">
                     <div className='flex items-center justify-between border-b-2 border-blue-300 p-3'>
                         <h2 className='text-lg font-bold'>{heading}</h2>
