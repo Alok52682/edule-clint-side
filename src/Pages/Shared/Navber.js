@@ -6,8 +6,14 @@ import { AuthContext } from '../../Contexts/UserContext';
 
 const Navber = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const { light, SetLight } = useContext(ThemeContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch((error) => console.log('error', error))
+    }
 
     return (
         <div className={`navbar ${light ? "bg-blue-200" : "bg-blue-900"} sticky top-0 z-10`}>
@@ -85,13 +91,13 @@ const Navber = () => {
             </div>
             <div className="navbar-end">
                 {
-                    !user?.displayName ?
+                    !user?.uid ?
                         <Link to='/login' className={`btn btn-ghost ${light ? " text-black" : " text-blue-200"} `}>Log In</Link>
                         :
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img title={user?.displayName} src={`https://mir-s3-cdn-cf.behance.net/project_modules/disp/ea7a3c32163929.567197ac70bda.png`} alt='Profile' />
+                                    <img title={user?.display} src={user?.photoURL ? user?.photoURL : 'https://mir-s3-cdn-cf.behance.net/project_modules/disp/ea7a3c32163929.567197ac70bda.png'} alt='Profile' />
                                 </div>
                             </label>
                             <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
@@ -101,7 +107,7 @@ const Navber = () => {
                                     </Link>
                                 </li>
                                 <li><Link>Settings</Link></li>
-                                <li><Link>Log Out</Link></li>
+                                <li><Link onClick={handleLogOut}>Log Out</Link></li>
                             </ul>
                         </div>
                 }

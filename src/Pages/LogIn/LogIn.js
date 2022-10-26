@@ -1,7 +1,22 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/UserContext';
 
 const LogIn = () => {
+
+    const { signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => console.log(result.user))
+            .catch((error) => console.log('error', error))
+    }
+    const handleGithubSignIn = () => {
+        signInWithGithub()
+            .then(result => console.log(result.user))
+            .catch((error) => console.log('error', error))
+    }
     return (
         <div className='py-6'>
             <div className="flex bg-blue-100 rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
@@ -11,13 +26,13 @@ const LogIn = () => {
                 <div className="w-full p-8 lg:w-1/2">
                     <h2 className="text-2xl font-bold text-gray-700 text-center">Edule</h2>
                     <p className="text-xl text-gray-600 text-center">Welcome back!</p>
-                    <Link to="/" className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-blue-50">
+                    <Link onClick={handleGoogleSignIn} className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-blue-50">
                         <div className="px-4 py-3">
                             <img src={`https://cdn-icons-png.flaticon.com/512/2991/2991148.png`} alt='Google' className='w-5' />
                         </div>
                         <h1 className="px-4 py-3 w-5/6 text-center text-gray-600 font-bold">Sign in with Google</h1>
                     </Link>
-                    <Link to="/" className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-blue-50">
+                    <Link onClick={handleGithubSignIn} className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-blue-50">
                         <div className="px-4 py-3">
                             <img src={`https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png`} alt='Github' className='w-5' />
                         </div>
