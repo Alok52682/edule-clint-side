@@ -97,7 +97,7 @@ const Navber = () => {
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img title={user?.display} src={user?.photoURL ? user?.photoURL : 'https://mir-s3-cdn-cf.behance.net/project_modules/disp/ea7a3c32163929.567197ac70bda.png'} alt='Profile' />
+                                    <img title={user?.display} src={user?.photoURL ? user?.photoURL : 'https://conference.pecb.com/wp-content/uploads/2017/10/no-profile-picture.jpg'} alt='Profile' />
                                 </div>
                             </label>
                             <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
