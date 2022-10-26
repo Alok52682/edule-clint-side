@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/UserContext';
 
 const LogIn = () => {
 
-    const { signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const { signInWithGoogle, signInWithGithub, userSignIn, handleForgetPass } = useContext(AuthContext);
+    const [userInfo, setUserInfo] = useState({
+        email: "",
+        password: ""
+    });
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
@@ -17,6 +22,27 @@ const LogIn = () => {
             .then(result => console.log(result.user))
             .catch((error) => console.log('error', error))
     }
+
+    const handelSignIn = event => {
+        event.preventDefault();
+        const email = userInfo.email;
+        const password = userInfo.password;
+        userSignIn(email, password)
+            .then(result => {
+                console.log(result.user);
+                toast('Log In Successfull');
+            })
+    }
+
+    const handleEmailBlur = (event) => {
+        const email = event.target.value;
+        setUserInfo({ ...userInfo, email: email });
+    }
+    const handlePasswordBlur = (event) => {
+        const password = event.target.value;
+        setUserInfo({ ...userInfo, password: password });
+    }
+
     return (
         <div className='py-6'>
             <div className="flex bg-blue-100 rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
@@ -43,17 +69,17 @@ const LogIn = () => {
                         <Link to='/' className="text-xs text-center text-gray-500 uppercase">or login with email</Link>
                         <span className="border-b w-1/5 lg:w-1/4"></span>
                     </div>
-                    <form>
+                    <form onSubmit={handelSignIn}>
                         <div className="mt-4">
                             <label className="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
-                            <input className="bg-blue-50 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email" placeholder='Enter Email Address' required />
+                            <input onBlur={handleEmailBlur} className="bg-blue-50 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email" placeholder='Enter Email Address' required />
                         </div>
                         <div className="mt-4">
                             <div className="flex justify-between">
                                 <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
-                                <Link to="/" className="text-xs text-gray-500">Forget Password?</Link>
+                                <Link onClick={() => handleForgetPass(userInfo.email)} className="text-xs text-gray-500">Forget Password?</Link>
                             </div>
-                            <input className="bg-blue-50 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password" placeholder='********' required />
+                            <input onBlur={handlePasswordBlur} className="bg-blue-50 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password" placeholder='********' required />
                         </div>
                         <div className="mt-8">
                             <button type='submit' className="btn btn-info w-full">Log In</button>

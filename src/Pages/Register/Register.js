@@ -1,6 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/UserContext';
 
@@ -34,6 +35,7 @@ const Register = () => {
                     .then(() => { })
                     .catch((error) => console.log('error', error))
                 console.log(result.user);
+                toast('Account has been Created')
             })
             .catch((error) => console.log('error', error))
     }

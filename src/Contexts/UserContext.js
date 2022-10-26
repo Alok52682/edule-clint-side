@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../Firebase/Firebase.config'
+import toast from 'react-hot-toast';
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -29,6 +30,24 @@ const UserContext = ({ children }) => {
         })
     }
 
+    const userSignIn = (email, pass) => {
+        return signInWithEmailAndPassword(auth, email, pass)
+    }
+
+    const handleForgetPass = (userEmail) => {
+        if (!userEmail) {
+            toast('Please enter your email!')
+            return
+        }
+        sendPasswordResetEmail(auth, userEmail)
+            .then(() => {
+                toast('Password reset email sent')
+            })
+            .catch(error => {
+                console.log('error', error);
+            })
+    }
+
 
     const logOut = () => {
         return signOut(auth)
@@ -47,6 +66,8 @@ const UserContext = ({ children }) => {
         signInWithGithub,
         createUser,
         updateUserProfile,
+        userSignIn,
+        handleForgetPass,
         logOut
     };
     return (
