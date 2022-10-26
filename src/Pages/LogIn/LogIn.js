@@ -20,7 +20,7 @@ const LogIn = () => {
         signInWithGoogle()
             .then(result => {
                 console.log(result.user);
-                toast('Log In Successfull');
+                toast.success('Log In Successfull');
                 navigate(from, { replace: true });
             })
             .catch((error) => console.log('error', error))
@@ -29,7 +29,7 @@ const LogIn = () => {
         signInWithGithub()
             .then(result => {
                 console.log(result.user);
-                toast('Log In Successfull');
+                toast.success('Log In Successfull');
                 navigate(from, { replace: true });
             })
             .catch((error) => console.log('error', error))
@@ -43,11 +43,11 @@ const LogIn = () => {
         userSignIn(email, password)
             .then(result => {
                 console.log(result.user);
-                toast('Log In Successfull');
+                toast.success('Log In Successfull');
                 navigate(from, { replace: true });
             })
             .catch((error) => {
-                toast(error.message);
+                toast.error(error.message);
             })
     }
 

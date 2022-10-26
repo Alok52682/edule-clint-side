@@ -55,12 +55,12 @@ const UserContext = ({ children }) => {
     // this function sent email to forget password
     const handleForgetPass = (userEmail) => {
         if (!userEmail) {
-            toast('Please enter your email!')
+            toast.error('Please enter your email!')
             return
         }
         sendPasswordResetEmail(auth, userEmail)
             .then(() => {
-                toast('Password reset email sent')
+                toast.promise('Password reset email sent')
             })
             .catch(error => {
                 console.log('error', error);

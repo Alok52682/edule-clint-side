@@ -11,7 +11,10 @@ root.render(
   <React.StrictMode>
     <UserContext>
       <App />
-      <Toaster />
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
     </UserContext>
   </React.StrictMode>
 );

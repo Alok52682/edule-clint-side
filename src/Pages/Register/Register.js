@@ -39,12 +39,12 @@ const Register = () => {
                     .then(() => { })
                     .catch((error) => console.log('error', error))
                 verifyEmail()
-                    .then(() => toast('Cheak email and varify your account.'))
+                    .then(() => toast.promise('Cheak email and varify your account.'))
                 console.log(result.user);
-                toast('Account has been Created');
+                toast.success('Account has been Created');
                 navigate(from, { replace: true });
             })
-            .catch((error) => toast(error.message))
+            .catch((error) => toast.error(error.message))
     }
 
     const handelOnChangeFullName = event => {

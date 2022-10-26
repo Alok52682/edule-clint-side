@@ -1,5 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link, NavLink } from 'react-router-dom';
 import { ThemeContext } from '../../Contexts/ThemeProvider';
 import { AuthContext } from '../../Contexts/UserContext';
@@ -12,7 +13,7 @@ const Navber = () => {
     // this handler used for log out user from this website
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => toast.error('Signed Out'))
             .catch((error) => console.log('error', error))
     }
 

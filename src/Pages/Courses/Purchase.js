@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { ThemeContext } from '../../Contexts/ThemeProvider';
 
@@ -7,19 +8,31 @@ const Purchase = () => {
     const { light } = useContext(ThemeContext);
     const course = useLoaderData();
     const { course_banner, heading, price } = course;
+
+    const handelPayment = (event) => {
+        event.preventDefault();
+        const form = event.target
+        const email = form.email.value;
+        if (email) {
+            toast.success(`Payment Successfull!! Welcome to the ${heading} course`);
+            form.reset();
+        }
+        else {
+            toast.error('Enter Email or Phone Number')
+        }
+    }
     return (
         <div className='lg:flex items-center justify-center gap-5 lg:mt-52 w-11/12 mx-auto'>
             <div className={`"card ${light ? "bg-base-100" : "bg-base-900"} border shadow-xl mb-5 "`}>
-                <div className="card-body">
+                <form onSubmit={handelPayment} className="card-body">
                     <div>
                         <h2 className='text-2xl font-bold mb-5'>Proceed with mobile number/email to complete the payment</h2>
-                        <input type="text" placeholder="Phone/Email" className="input input-bordered input-info w-full mb-3" />
+                        <input type="text" name='email' placeholder="Phone/Email" className="input input-bordered input-info w-full mb-3" />
                     </div>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-info w-full">Proceed</button>
+                        <button type='submit' className="btn btn-info w-full">Proceed</button>
                     </div>
-
-                </div>
+                </form>
             </div>
             <div className={`card w-full border shadow-xl mb-5 ${light ? "bg-base-100" : "bg-base-900"} `}>
                 <div className="card-body">
