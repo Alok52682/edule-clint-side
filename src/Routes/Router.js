@@ -8,6 +8,7 @@ import Faq from "../Pages/Faq/Faq";
 import Home from "../Pages/Home/Home";
 import LogIn from "../Pages/LogIn/LogIn";
 import Register from "../Pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: ErrorPage } = require("../Pages/Shared/ErrorPage");
@@ -43,7 +44,7 @@ const router = createBrowserRouter([{
                 {
                     path: '/courses/:id/purchase',
                     loader: async ({ params }) => fetch(`https://b610-lerning-platform-server-side-sigma.vercel.app/courses/${params.id}`),
-                    element: <Purchase />
+                    element: <PrivateRoute><Purchase /></PrivateRoute>
                 }
             ]
         },

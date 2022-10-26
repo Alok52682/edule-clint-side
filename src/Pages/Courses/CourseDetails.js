@@ -9,14 +9,13 @@ const ref = React.createRef();
 const CourseDetails = () => {
     const { light } = useContext(ThemeContext);
     const course = useLoaderData();
-    const { about, curriculum, description, heading, instructor, instructor_avater, price, id } = course;
+    const { about, course_banner, curriculum, description, heading, instructor, instructor_avater, price, id } = course;
 
 
 
     return (
         <div className='m-10'>
 
-            <h1 className='text-4xl font-bold mb-5'>{heading}</h1>
             <div className={`border border-info p-5 rounded-xl lg:flex justify-around items-center  ${light ? "bg-blue-100" : "bg-blue-900 text-white"}`}>
                 <div>
                     <h2 className='text-xl font-semibold'>Instractor</h2>
@@ -39,6 +38,8 @@ const CourseDetails = () => {
                     </Pdf>
                 </div>
             </div>
+            <h1 className='text-4xl font-bold mb-5'>{heading}</h1>
+            <img src={course_banner} className='w-full border-4 border-blue-400 rounded-xl mb-5' alt="" />
             <h2 className='text-3xl font-bold mt-5'>Course Curriculum </h2>
             <div ref={ref} className='border border-info p-5 rounded-xl text-justify'>
                 <p>{curriculum}</p>
