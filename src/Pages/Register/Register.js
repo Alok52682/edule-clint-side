@@ -12,7 +12,7 @@ const Register = () => {
     const from = location.state?.from?.pathname || '/';
     const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
     // this state for show password suggession for genarate valied password
-    const [showSuggession, setShowSuggession] = useState(false)
+    const [showSuggession, setShowSuggession] = useState(false);
     const [passError, setPassError] = useState({
         oneUpperCase: "At least one upper case",
         oneDegit: "At least one digit",
