@@ -14,7 +14,7 @@ const ItClassSection = () => {
                     <img src="https://i.ibb.co/tHV4R3K/img.webp" className="" alt='' />
                 </div>
                 <div className='md:w-1/2'>
-                    <div className="card card-side bg-base-100 border md:p-5 mt-3">
+                    <div className="card card-side bg-base-100 hover:border-info hover:bg-slate-200 border md:p-5 mt-3">
                         <div className='p-3'>
                             <img src="https://i.ibb.co/ngncNpg/1200px-Backpack-icon-svg.png" className='w-14' alt="Movie" />
                         </div>
@@ -23,7 +23,7 @@ const ItClassSection = () => {
                             <p className='text-xs md:text-lg'>One teacher will take the class, the second teacher will answer your various questions</p>
                         </div>
                     </div>
-                    <div className="card card-side bg-base-100 border md:p-5 mt-3 flex items-center">
+                    <div className="card card-side bg-base-100 hover:border-info hover:bg-slate-200 border md:p-5 mt-3 flex items-center">
                         <div className='p-3'>
                             <img src="https://i.ibb.co/vmWfQ1K/images-q-tbn-ANd9-Gc-Sx-x-VUasng-Zx-Wl-D2-OTb7-LJ3-YWm-Lroxiwp-A-usqp-CAU.png" className='w-14' alt="Movie" />
                         </div>
@@ -31,7 +31,7 @@ const ItClassSection = () => {
                             <h2 className="md:text-xl font-semibold">Lecture sheets and recorded classes</h2>
                         </div>
                     </div>
-                    <div className="card card-side bg-base-100 border md:p-5 mt-3 flex items-center">
+                    <div className="card card-side bg-base-100 hover:border-info hover:bg-slate-200 border md:p-5 mt-3 flex items-center">
                         <div className='p-3'>
                             <img src="https://i.ibb.co/BgPdjjv/document-edit-flat.png" className='w-14' alt="Movie" />
                         </div>
